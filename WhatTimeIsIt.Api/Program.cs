@@ -16,8 +16,13 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/whattimeisit", () => DateTime.UtcNow)
+var utcNow = DateTime.UtcNow;
+
+app.MapGet("/whattimeisit", () => utcNow)
     .WithName("WhatTimeIsIt")
     .WithOpenApi();
 
+app.MapGet("/whatdateisit", () => DateOnly.FromDateTime(utcNow))
+    .WithName("WhatDateIsIt")
+    .WithOpenApi();
 app.Run();
