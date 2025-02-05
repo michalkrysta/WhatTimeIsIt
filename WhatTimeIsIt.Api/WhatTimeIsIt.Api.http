@@ -1,0 +1,4 @@
+GET https://localhost:7290/whattimeisit/
+Accept: application/json
+
+###

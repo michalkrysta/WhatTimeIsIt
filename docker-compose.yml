@@ -1,0 +1,8 @@
+﻿services:
+  whattimeisit.api:
+    image: whattimeisit.api
+    build:
+      context: .
+      dockerfile: WhatTimeIsIt.Api/Dockerfile
+    ports:
+      - "8080:8080"
