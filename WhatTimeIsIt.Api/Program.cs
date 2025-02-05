@@ -1,7 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -16,13 +15,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var utcNow = DateTime.UtcNow;
-
-app.MapGet("/whattimeisit", () => utcNow)
+// Endpoint to get current UTC time
+app.MapGet("/whattimeisit", () => DateTime.UtcNow)
     .WithName("WhatTimeIsIt")
     .WithOpenApi();
 
-app.MapGet("/whatdateisit", () => DateOnly.FromDateTime(utcNow))
+// Endpoint to get current UTC date
+app.MapGet("/whatdateisit", () => DateOnly.FromDateTime(DateTime.UtcNow))
     .WithName("WhatDateIsIt")
     .WithOpenApi();
+
 app.Run();
