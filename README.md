@@ -5,3 +5,5 @@ Unit Test
 Integration Test
 Publish
 Deploy to Azure
+
+Test
